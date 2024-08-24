@@ -1,0 +1,47 @@
+.header{
+    background: white;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    position: fixed-top;
+    
+}
+
+.header-heading{
+    font-family: Poppins;
+    color:rgb(65, 103, 136);
+    font-size: 50px;
+    font-weight: 700;
+}
+
+
+.header-button{
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-btn{
+    padding: 10px 15px;
+    border: none;
+    background: rgb(236, 235, 235);
+    font-family: Poppins;
+    font-size: 18px;
+    border-radius: 25px;
+    font-weight: 500;
+}
+
+
+.join-btn{
+    padding: 10px 15px;
+    border: none;
+    background: rgb(127, 127, 241);
+    color: white;
+    font-family: Poppins;
+    font-size: 18px;
+    border-radius: 25px;
+    font-weight: 500;
+}

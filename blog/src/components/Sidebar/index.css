@@ -1,0 +1,46 @@
+.sbr{
+    width: 100px;
+    height: 70vh;
+    background: white;
+    
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+}
+.sbr-btn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+
+.item{
+    margin-bottom: 20px;
+    
+    border-radius: 10px;
+    padding: 5px;
+    align-content: center;
+    
+}
+
+
+.hr{
+    width: 100%;
+    border:1px solid gray;
+    margin-bottom: 10px;
+}
+.item:hover{
+    background-color: rgb(101, 101, 240);
+    color: white;
+}
+
+
+
+.link{
+    text-decoration: none;
+}
