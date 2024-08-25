@@ -21,13 +21,13 @@ const LoginRegister =()=>{
     const onSubmitForm=(e)=>{
         e.preventDefault();
         if(currState==="Sign up"){
-            axios.post("http://localhost:4000/register",userData).then(
+            axios.post("https://zuaibackend-8.onrender.com/register",userData).then(
                 res=>alert(res.data)
             )
         }else{
             const {email,password}=userData
             const data={email,password}
-            axios.post("http://localhost:4000/login",data).then(
+            axios.post("https://zuaibackend-8.onrender.com/login",data).then(
                 res=>setToken(res.data.token) 
                
             )

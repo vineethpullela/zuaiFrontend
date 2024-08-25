@@ -108,7 +108,7 @@ const [serachInput,setSearchInput]=useState("");
 
 useEffect(()=>{
     const fetchData=async()=>{
-        await axios.get("http://localhost:4000/blogs").then(
+        await axios.get("https://zuaibackend-8.onrender.com/blogs").then(
             res=>setblogData((prevState)=>[...prevState,...res.data])
         )
     }

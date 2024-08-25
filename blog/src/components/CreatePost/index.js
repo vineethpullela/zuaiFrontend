@@ -39,7 +39,7 @@ const CreatePost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post("http://localhost:4000/createpost",formData).then(
+    axios.post("https://zuaibackend-8.onrender.com/createpost",formData).then(
       res=>alert(res.data)
   )
   setFormData({
