@@ -7,7 +7,7 @@ import "./index.css";
 const LoginRegister =()=>{
     const navigate=useNavigate();
     const [token,setToken]=useContext(store)
-    const [currState,setCurrState]=useState("Sign up");
+    const [currState,setCurrState]=useState("login");
     const [userData,setData]=useState({username:"",email:"",password:""});
     //const [token,setToken]=useState("");
     
@@ -39,6 +39,7 @@ const LoginRegister =()=>{
    if(token){
       navigate("/home");
      }
+     
 
 console.log(token)
     return(

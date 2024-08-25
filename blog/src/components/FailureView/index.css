@@ -1,0 +1,28 @@
+.failure-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.failure-heading{
+    font-size: 40px;
+    color:rgb(12, 60, 103);
+    font-weight: bold;
+    font-family: Poppins;
+
+}
+
+.failure-img{
+    width: 500px;
+    border-radius: 10px;
+}
+
+
+.err-msg{
+    font-size: 30px;
+    color: black;
+    font-weight: 300;
+   
+}

@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react"
+import FailureView from "../FailureView";
 import axios from "axios";
 import "./index.css"
+//import { useNavigate } from "react-router-dom";
+//import { store } from "../../store";
+//import { Link } from "react-router-dom";
 
 const blogs=[{id:1,author: "Alec Pronk",
     title: "Other Barks & Bites for Friday, August 23: Music Publishers Petition Supreme Court to Review Overturned $1 Billion Copyright Infringement Judgment; Nike Continues Trademark Infringement Lawsuit Against ‘Shoe Surgeon’",
@@ -97,33 +101,41 @@ const blogs=[{id:1,author: "Alec Pronk",
     ]
 
 const Home=()=>{
-
+//const navigate=useNavigate();
+///const {blog,setBlog}=useContext(store);
 const [blogdata,setblogData]=useState(blogs);
 const [serachInput,setSearchInput]=useState("");
 
 useEffect(()=>{
-    const fetchData=()=>{
-        axios.get("http://localhost:4000/blogs").then(
+    const fetchData=async()=>{
+        await axios.get("http://localhost:4000/blogs").then(
             res=>setblogData((prevState)=>[...prevState,...res.data])
         )
     }
 
-
-
-    fetchData()
+    fetchData();
 
 
 
 
 },[])
 
+/*const getBlog=(id)=>{
+    const data=blogdata.find(each=>each.id===id)
+   
+     
+    navigate("/blogs/:id")
+    
+}*/
+
 const FilterBlogsData=()=>{
     console.log(serachInput)
-    if (serachInput==="  "){
-        setblogData([...blogs])
+    if (serachInput.trim()===""){
+        setblogData([...blogs]);
+        return;
     }
     
-    const filter_data=blogdata.filter((each)=>each.title.includes(serachInput))
+    const filter_data=blogdata.filter((each)=>each.title.toLowerCase().includes(serachInput.toLocaleLowerCase()))
     setblogData([...filter_data])
 
 }
@@ -135,19 +147,23 @@ const FilterBlogsData=()=>{
     <div className="home">
         <div className="search-container">
             <input type="text" onChange={(e)=>setSearchInput(e.target.value)} className="search-input"/>
-            <button type="button" onClick={()=>FilterBlogsData()} className="search-btn">search</button>
+            <button type="button" onClick={FilterBlogsData} className="search-btn">search</button>
         </div>
-        {blogdata.map((each)=>{
+        {blogdata.length===0?(<FailureView/>):
+        (blogdata.map((each)=>{
 
             return(
- <div key={each.id} className="blog-container">
+               
+<div key={each.id}  className="blog-container">
  <h1 className="blog-title">{each.title}</h1>
  <p className="blog-descripton">{each.description}</p>
  <img src={each.urlToImage} alt="img" className="blog-img"/>
  <p className="blog-content">{each.content}</p>
  <p className="blog-published">{each.publishedAt}</p>       
-</div>)
-        })}
+</div>
+
+)
+        }))}
        
     </div>
     </>)
